@@ -27,12 +27,12 @@ class Blog(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     featured_image = models.ImageField(upload_to='uploads/%y/%m/%d/')
-    short_description = models.TextField(max_length=50)
-    blog_body = models.TextField(max_length=2000)
+    short_description = models.TextField(max_length=1000)
+    blog_body = models.TextField(max_length=5000)
     # status = models.IntegerField(choices=STATUS_CHOICES)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="draft")
     is_featured = models.BooleanField(default=False)
-    crreated_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
